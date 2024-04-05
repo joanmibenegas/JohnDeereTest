@@ -1,7 +1,7 @@
 package johndeere.test.service;
 
-import johndeere.test.models.TaskStatus;
+import johndeere.test.models.base.BaseDTO;
 
 public interface KafkaProducerService {
-    void send(String topicName, String key, TaskStatus value);
+    void send(String topicName, String key, BaseDTO value);
 }

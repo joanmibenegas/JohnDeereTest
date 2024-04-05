@@ -14,15 +14,14 @@ import java.util.concurrent.CompletableFuture;
 
 @Service
 @Log
-public class KafkaProducerServiceImpl implements KafkaProducerService {
-    private final Logger LOGGER = LoggerFactory.getLogger(KafkaProducerServiceImpl.class);
+public class KafkaSessionProducerServiceImpl implements KafkaProducerService {
+    private final Logger LOGGER = LoggerFactory.getLogger(KafkaSessionProducerServiceImpl.class);
 
     @Autowired
     KafkaTemplate<String, BaseDTO> kafkaTemplate;
 
     @Override
     public void send(String topicName, String key, BaseDTO value) {
-
         CompletableFuture<SendResult<String, BaseDTO>> future = kafkaTemplate.send(topicName, key, value);
 
         future.whenComplete((sendResult, exception) -> {
@@ -31,7 +30,7 @@ public class KafkaProducerServiceImpl implements KafkaProducerService {
             } else {
                 future.complete(sendResult);
             }
-            LOGGER.info("Task status send to Kafka topic : " + value);
+            LOGGER.info("Session send to Kafka topic : " + value);
         });
     }
 }

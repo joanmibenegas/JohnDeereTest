@@ -10,11 +10,12 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Log
-public class KafkaTopicListenerServiceImpl implements KafkaTopicListenerService {
-    private final Logger logger = LoggerFactory.getLogger(KafkaTopicListenerServiceImpl.class);
+public class KafkaSessionListenerServiceImpl implements KafkaTopicListenerService {
+    private final Logger logger = LoggerFactory.getLogger(KafkaSessionListenerServiceImpl.class);
 
-    @KafkaListener(topics = {"event-topic"}, groupId = "task-group")
+    @Override
+    @KafkaListener(topics = {"session-topic"}, groupId = "task-group")
     public void consume(BaseDTO baseDTO) {
-        logger.info(String.format("Task status is updated : " + baseDTO));
+        logger.info(String.format("Session is updated : " + baseDTO));
     }
 }
