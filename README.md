@@ -15,4 +15,6 @@ To run the application the following ports are required:
 
 Go to the root of project and execute docker-compose up -d
 
+There are a JSON with importable postman collection at root of project.
+
 Thank you!

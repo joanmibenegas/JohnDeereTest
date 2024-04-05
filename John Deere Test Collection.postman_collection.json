@@ -1,0 +1,97 @@
+{
+	"info": {
+		"_postman_id": "b6328fe3-74b5-4b4e-8a58-ac078453823a",
+		"name": "John Deere Test Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9993971"
+	},
+	"item": [
+		{
+			"name": "login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"sessionId\": \"asfla-asdf-asdfaaaaa\",\r\n\"machineId\": \"2343-asdf-fads\",\r\n\"startAt\": \"1712321562\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:6868/login",
+					"host": [
+						"localhost"
+					],
+					"port": "6868",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event generator",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"sessionId\": \"asfla-asdf-asdfaaaaa\",\r\n    \"events\": [\r\n        {\r\n            \"eventAt\": \"1712321562\",\r\n            \"eventType\": \"EXEC\",\r\n            \"numericEventValue\": \"10\"\r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:6868/event",
+					"host": [
+						"localhost"
+					],
+					"port": "6868",
+					"path": [
+						"event"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "event list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:6868/machine/2343-asdf-fads/session/asfla-asdf-asdfaaaaa",
+					"host": [
+						"localhost"
+					],
+					"port": "6868",
+					"path": [
+						"machine",
+						"2343-asdf-fads",
+						"session",
+						"asfla-asdf-asdfaaaaa"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
