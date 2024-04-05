@@ -1,4 +1,4 @@
-package johndeere.test.service;
+package johndeere.test.service.kafka;
 
 import johndeere.test.models.SessionDTO;
 import org.springframework.kafka.annotation.KafkaListener;

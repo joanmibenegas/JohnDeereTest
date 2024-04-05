@@ -29,34 +29,13 @@ services:
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,INTERNAL:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: INTERNAL
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
-  postgresdb:
-    image: postgres
-    restart: unless-stopped
-    environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=johndeeretest
-      - POSTGRES_DB=johndeeretest
-    ports:
-      - 5433:5433
-    volumes:
-      - db:/var/lib/postgres
   johndeere-app:
     depends_on:
       - kafka
-      - postgresdb
     build: .
     restart: on-failure
     ports:
       - 6868:8080
-    environment:
-      SPRING_APPLICATION_JSON: '{
-          "spring.datasource.url": "jdbc:postgresql://postgresdb:5433/johndeeretest",
-          "spring.datasource.username": "postgres",
-          "spring.datasource.password": "johndeeretest",
-          "spring.jpa.properties.hibernate.dialect": "org.hibernate.dialect.PostgreSQLDialect",
-          "spring.jpa.hibernate.ddl-auto": "update",
-          "spring.application.name": "test"
-      }'
     volumes:
       - .m2:/root/.m2
     stdin_open: true

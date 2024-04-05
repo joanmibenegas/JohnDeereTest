@@ -1,22 +1,16 @@
 package johndeere.test.entity;
 
-import jakarta.annotation.Nullable;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
-
-@Data
 @Entity
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-public class SessionEntity {
+@NoArgsConstructor
+public class MachineEntity {
     @Id
-    private String sessionId;
-    private Timestamp startAt;
-    @Nullable
-    private Timestamp endDate;
+    private String idMachine;
 }

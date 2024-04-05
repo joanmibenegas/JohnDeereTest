@@ -1,6 +1,5 @@
 package johndeere.test;
 
-import johndeere.test.models.TaskStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,8 +17,8 @@ public class TestApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        kafkaTemplate.send("event-topic", "taskId", new TaskStatus("taskId", "taskName", 50.0f, TaskStatus.Status.RUNNING));
-        kafkaTemplate.send("event-topic", "taskId", new TaskStatus("taskId", "taskName", 100.0f, TaskStatus.Status.FINISHED));
+       // kafkaTemplate.send("event-topic", "taskId", new TaskStatus("taskId", "taskName", 50.0f, TaskStatus.Status.RUNNING));
+       // kafkaTemplate.send("event-topic", "taskId", new TaskStatus("taskId", "taskName", 100.0f, TaskStatus.Status.FINISHED));
     }
 
 }

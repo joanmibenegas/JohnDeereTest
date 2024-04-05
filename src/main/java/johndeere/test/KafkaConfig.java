@@ -8,7 +8,7 @@ import org.springframework.kafka.config.TopicBuilder;
 @Configuration
 public class KafkaConfig {
     @Bean
-    public NewTopic taskTopic() {
+    public NewTopic eventTopic() {
         return TopicBuilder.name("event-topic")
                 .partitions(1)
                 .replicas(1)

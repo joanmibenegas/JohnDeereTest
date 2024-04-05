@@ -1,7 +1,7 @@
-package johndeere.test.service.impl;
+package johndeere.test.service.kafka.impl;
 
 import johndeere.test.models.SessionDTO;
-import johndeere.test.service.KafkaSessionProducerService;
+import johndeere.test.service.kafka.KafkaSessionProducerService;
 import lombok.extern.java.Log;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
