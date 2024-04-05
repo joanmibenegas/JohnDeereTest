@@ -1,9 +1,9 @@
 package johndeere.test.service;
 
-import johndeere.test.models.base.BaseDTO;
+import johndeere.test.models.SessionDTO;
 import org.springframework.kafka.annotation.KafkaListener;
 
-public interface KafkaTopicListenerService {
+public interface KafkaSessionListenerService {
     @KafkaListener(topics = {"session-topic"}, groupId = "task-group")
-    void consume(BaseDTO baseDTO);
+    void consume(SessionDTO sessionDTO);
 }
